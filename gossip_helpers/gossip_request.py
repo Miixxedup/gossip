@@ -11,7 +11,7 @@ class GossipRequest():
 
     # Request the resource
     def search_request(self):
-        r = requests.get(f"{self.endpoint}/gossips?{self.specific_field}={self.searchkey}&type= ",
+        r = requests.get(f"{self.endpoint}/gossips?{self.specific_field}={self.searchkey}&type={self.source}",
         headers={
             'Content-Type': 'application/json'
         })

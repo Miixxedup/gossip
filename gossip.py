@@ -19,7 +19,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-s', help= "The indicator to search")
 parser.add_argument('-f', default='indicator', help= "Search in a specific fied")
 parser.add_argument('-u', help= "Upload supplied json blob to server")
-parser.add_argument('-src', help= "Only select from a list of specified sources" ) #TODO implement functionality.
+parser.add_argument('-src',default='USER', help= "Only select from a list of specified sources" ) #TODO implement functionality.
 parser.add_argument('-d', action= 'store_true',help= "Return detailed results")
 args = parser.parse_args()
 
