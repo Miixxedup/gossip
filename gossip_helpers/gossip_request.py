@@ -1,5 +1,6 @@
 import json
 import requests
+from .gossip_querybuilder import GossipQueryBuilder
 
 # Object to store the Gossip request
 class GossipRequest():
@@ -9,13 +10,14 @@ class GossipRequest():
             self.searchkey = args.s
             self.specific_field=args.f
             self.source=args.src
-            self.upload=args.u
         else:
             self.endpoint = endpoint
             self.upload = args
+
     # Request the resource
     def search_request(self):
-        r = requests.get(f"{self.endpoint}/gossips?{self.specific_field}={self.searchkey}&type={self.source}",
+        query = GossipQueryBuilder.search_query_builder(self, self.searchkey, self.specific_field, self.source, self.endpoint)
+        r = requests.get(query,
         headers={
             'Content-Type': 'application/json'
         })
