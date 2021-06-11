@@ -18,7 +18,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-s', help= "The indicator to search")
 parser.add_argument('-f', default='indicator', help= "Search in a specific fied")
-parser.add_argument('-u', help= "Upload supplied json blob to server")
+parser.add_argument('-u', nargs=3, help= "Upload supplied fields to server format : indicator comment type")
 parser.add_argument('-src',default='USER', help= "Only select from a list of specified sources" ) #TODO implement functionality.
 parser.add_argument('-d', action= 'store_true',help= "Return detailed results")
 args = parser.parse_args()
@@ -28,7 +28,7 @@ args = parser.parse_args()
 if args.s:
     GossipItem(GossipRequest(args).search_request(), detailed=args.d).show_results()
 elif args.u:
-    GossipItem(GossipRequest(args).search_request(), detailed=args.d).show_results()
+    GossipItem(GossipRequest(args).store_request(), detailed=args.d)
 else:
     print("Use gossip -h for help")
 # Store results to server
