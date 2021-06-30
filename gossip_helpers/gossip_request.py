@@ -1,10 +1,11 @@
 import json
 import requests
+from .config import *
 from .gossip_querybuilder import GossipQueryBuilder
 
 # Object to store the Gossip request
 class GossipRequest():
-    def __init__(self, args = None, endpoint= "http://localhost:1337"):
+    def __init__(self, args = None, endpoint= ENDPOINT):
         if args:
             self.endpoint = endpoint
             self.searchkey = args.s
