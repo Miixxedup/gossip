@@ -23,3 +23,8 @@ Not automated, so here is what to do in words:
 - Add a Gossip
 - Try finding it with gossip.py -s {indicator} 
 
+#TODO
+- Create decent pip3 setup (or maybe not, not sure)
+    - If new setup, also restructure code to have more modular structure.
+- Generate a class to handle more inputs (e.g. CIDR's)
+- Focus is currently on lookups, not on data storage. Maybe add better support for storing data too.
